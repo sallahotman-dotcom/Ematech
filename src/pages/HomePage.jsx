@@ -4,16 +4,13 @@ import {
   ShieldCheck,
   Truck,
   Headphones,
-  Star,
-  ShoppingBag,
   Sparkles
 } from 'lucide-react';
 import { categories, getFeaturedProducts } from '../data/products';
-import { useCart } from '../context/CartContext';
+import ProductCard from '../components/ProductCard';
 import ReviewsCarousel from '../components/ReviewsCarousel';
 
 const HomePage = () => {
-  const { addToCart, formatPrice } = useCart();
   const featured = getFeaturedProducts();
 
   return (
@@ -186,83 +183,9 @@ const HomePage = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {featured.map((product) => {
-              const discount = product.oldPrice
-                ? Math.round(
-                    ((product.oldPrice - product.price) / product.oldPrice) * 100
-                  )
-                : 0;
-
-              return (
-                <article
-                  key={product.id}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 transition-all hover:border-amber-500/60 hover:shadow-lg hover:shadow-amber-500/10"
-                >
-                  <Link
-                    to={`/product/${product.id}`}
-                    className="relative block aspect-square overflow-hidden bg-neutral-950"
-                  >
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      loading="lazy"
-                    />
-                    {product.isNew && (
-                      <span className="absolute left-3 top-3 rounded-full bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-black">
-                        New
-                      </span>
-                    )}
-                    {discount > 0 && (
-                      <span className="absolute right-3 top-3 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 px-2.5 py-1 text-[10px] font-bold text-black">
-                        -{discount}%
-                      </span>
-                    )}
-                  </Link>
-
-                  <div className="flex flex-1 flex-col p-4">
-                    <p className="text-[11px] uppercase tracking-wider text-neutral-500">
-                      {product.brand}
-                    </p>
-                    <Link
-                      to={`/product/${product.id}`}
-                      className="mt-1 line-clamp-2 text-sm font-semibold text-white transition-colors hover:text-amber-400"
-                    >
-                      {product.name}
-                    </Link>
-
-                    <div className="mt-2 flex items-center gap-1 text-xs">
-                      <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                      <span className="font-medium text-white">{product.rating}</span>
-                      <span className="text-neutral-500">
-                        ({product.reviewsCount})
-                      </span>
-                    </div>
-
-                    <div className="mt-auto flex items-end justify-between pt-4">
-                      <div>
-                        <p className="text-base font-bold text-amber-400">
-                          {formatPrice(product.price)}
-                        </p>
-                        {product.oldPrice && (
-                          <p className="text-xs text-neutral-500 line-through">
-                            {formatPrice(product.oldPrice)}
-                          </p>
-                        )}
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => addToCart(product, 1)}
-                        aria-label={`Add ${product.name} to cart`}
-                        className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-amber-600 text-black shadow-md transition-transform hover:scale-110 active:scale-95"
-                      >
-                        <ShoppingBag className="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
+            {featured.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
           </div>
         </div>
       </section>
