@@ -1,0 +1,212 @@
+/* ==============================================================
+   Ematech - Global Stylesheet
+   Tailwind CSS v4 entry + premium black & gold base styles.
+   ============================================================== */
+
+@import "tailwindcss";
+
+/* Load our JS theme extension (custom colors, shadows, animations) */
+@config "../tailwind.config.js";
+
+/* ===== Base layer ===== */
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  *,
+  *::before,
+  *::after {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Premium text selection */
+  ::selection {
+    background-color: rgba(212, 175, 55, 0.4);
+    color: #ffffff;
+  }
+
+  /* Custom dark + gold scrollbar (desktop) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #2a2a2a 0%, #161616 100%);
+    border-radius: 8px;
+    border: 2px solid #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #e3b13d 0%, #a07a1f 100%);
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2a2a2a #0a0a0a;
+  }
+
+  /* Arabic content uses Cairo for premium rendering */
+  [dir='rtl'] {
+    font-family: 'Cairo', 'Inter', system-ui, sans-serif;
+    letter-spacing: 0;
+  }
+
+  /* Keyboard focus ring - gold premium accent */
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #000000, 0 0 0 4px #e3b13d;
+    border-radius: 6px;
+  }
+
+  /* Sensible media defaults */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* Remove default autofill background in dark theme */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-text-fill-color: #ffffff !important;
+    -webkit-box-shadow: 0 0 0 30px #171717 inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color: #ffffff;
+  }
+
+  /* Prevent iOS auto-zoom on form inputs */
+  @supports (-webkit-touch-callout: none) {
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+    }
+  }
+}
+
+/* ===== Components layer ===== */
+@layer components {
+  /* Gold gradient text */
+  .text-gold-gradient {
+    background-image: linear-gradient(
+      135deg,
+      #fcd980 0%,
+      #d4af37 50%,
+      #a07a1f 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Premium gold button */
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    background-image: linear-gradient(to right, #fbbf24, #d97706);
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #000000;
+    box-shadow: 0 8px 24px -12px rgba(212, 175, 55, 0.25);
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .btn-gold:hover {
+    box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.45);
+  }
+  .btn-gold:active {
+    transform: scale(0.98);
+  }
+  .btn-gold:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  /* Outline gold button */
+  .btn-outline-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid #404040;
+    background-color: rgba(23, 23, 23, 0.5);
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #ffffff;
+    transition: border-color 200ms ease, color 200ms ease, transform 200ms ease;
+  }
+  .btn-outline-gold:hover {
+    border-color: #fbbf24;
+    color: #fbbf24;
+  }
+  .btn-outline-gold:active {
+    transform: scale(0.98);
+  }
+
+  /* Hide scrollbar utility (used by carousels) */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ===== Utilities layer ===== */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* GPU-accelerated transforms for hover effects */
+  .gpu {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+}
