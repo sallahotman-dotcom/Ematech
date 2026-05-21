@@ -15,21 +15,37 @@ const HomePage = () => {
 
   return (
     <div className="bg-neutral-950">
-      {/* ============== HERO SECTION ============== */}
+      {/* ============== HERO SECTION (custom banner) ============== */}
       <section className="relative overflow-hidden bg-black">
-        {/* Ambient gold glows */}
-        <div className="pointer-events-none absolute -top-40 -left-40 h-[28rem] w-[28rem] rounded-full bg-amber-500/20 blur-3xl" />
+        {/* Custom uploaded banner */}
+        <img
+          src="/Hero-banner.png"
+          alt="Ematech - Premium technology curated for Morocco"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          loading="eager"
+          fetchpriority="high"
+        />
+
+        {/* Dark gradient overlays for legibility (left-to-right + bottom vignette) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/40 sm:via-black/75 lg:via-black/65 lg:to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+
+        {/* Ambient gold glows preserved for theme continuity */}
+        <div className="pointer-events-none absolute -top-40 -left-40 h-[28rem] w-[28rem] rounded-full bg-amber-500/15 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-40 right-0 h-[28rem] w-[28rem] rounded-full bg-amber-300/10 blur-3xl" />
 
-        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:py-28">
-          {/* Copy */}
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-xs font-medium text-amber-300">
+        {/* Subtle gold hairline at the bottom for that luxury cut */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+
+        {/* Content */}
+        <div className="relative mx-auto flex min-h-[560px] max-w-7xl flex-col justify-center px-6 py-20 sm:min-h-[640px] lg:min-h-[680px] lg:py-28">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-black/50 px-4 py-1.5 text-xs font-medium text-amber-300 backdrop-blur-sm">
               <Sparkles className="h-3.5 w-3.5" />
               Premium Tech, Curated for Morocco
             </div>
 
-            <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] sm:text-5xl lg:text-6xl">
               Elevate your everyday with{' '}
               <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-600 bg-clip-text text-transparent">
                 next-generation
@@ -37,33 +53,36 @@ const HomePage = () => {
               technology.
             </h1>
 
-            <p className="mt-6 max-w-xl text-base text-neutral-400 sm:text-lg">
+            <p className="mt-6 max-w-xl text-base text-neutral-200 drop-shadow-[0_1px_8px_rgba(0,0,0,0.6)] sm:text-lg">
               Smartphones, smartwatches, premium audio and home appliances. 100%
               authentic, fully warrantied, delivered to your door across Morocco.
             </p>
 
-            <p className="mt-3 text-sm text-neutral-500" dir="rtl">
+            <p
+              className="mt-3 text-sm text-neutral-300 drop-shadow-[0_1px_8px_rgba(0,0,0,0.6)]"
+              dir="rtl"
+            >
               تكنولوجيا فاخرة، منتجات أصلية، توصيل سريع لجميع مدن المملكة.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/category/smartphones"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 px-7 py-3.5 text-sm font-semibold text-black shadow-lg shadow-amber-500/20 transition-all hover:shadow-amber-400/40"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 px-7 py-3.5 text-sm font-semibold text-black shadow-lg shadow-amber-500/30 transition-all hover:shadow-amber-400/50"
               >
                 Shop Now
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 rounded-full border border-neutral-700 bg-neutral-900/50 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:border-amber-400 hover:text-amber-400"
+                className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-black/50 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-amber-400 hover:text-amber-400"
               >
                 Discover Ematech
               </Link>
             </div>
 
             {/* Inline trust strip */}
-            <div className="mt-10 grid grid-cols-3 gap-4 border-t border-neutral-800 pt-8 text-xs text-neutral-400">
+            <div className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-amber-500/20 pt-6 text-xs text-neutral-200">
               <div className="flex items-center gap-2">
                 <Truck className="h-4 w-4 text-amber-400" />
                 <span>24-72h delivery</span>
@@ -75,28 +94,6 @@ const HomePage = () => {
               <div className="flex items-center gap-2">
                 <Headphones className="h-4 w-4 text-amber-400" />
                 <span>7/7 support</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Visual */}
-          <div className="relative">
-            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-amber-400/30 via-amber-600/10 to-transparent blur-2xl" />
-            <div className="relative aspect-[5/6] overflow-hidden rounded-[2rem] border border-amber-500/20 bg-gradient-to-br from-neutral-900 to-black p-2 shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=1200&q=85&auto=format&fit=crop"
-                alt="iPhone 15 Pro Max - Featured drop"
-                className="h-full w-full rounded-[1.7rem] object-cover"
-                loading="eager"
-              />
-              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between rounded-2xl border border-white/10 bg-black/60 px-4 py-3 backdrop-blur-md">
-                <div>
-                  <p className="text-xs text-neutral-400">Featured Drop</p>
-                  <p className="text-sm font-semibold text-white">iPhone 15 Pro Max</p>
-                </div>
-                <span className="rounded-full bg-gradient-to-r from-amber-400 to-amber-600 px-3 py-1 text-xs font-bold text-black">
-                  -9%
-                </span>
               </div>
             </div>
           </div>
