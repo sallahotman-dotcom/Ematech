@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import CategoryPage from './pages/CategoryPage';
+import ProductPage from './pages/ProductPage';
 
 // Scrolls to the top whenever the route changes (premium UX)
 const ScrollToTop = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/category/:slug" element={<CategoryPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
 
           {/* Graceful fallback for routes not yet implemented */}
           <Route
