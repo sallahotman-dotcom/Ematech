@@ -1,0 +1,7 @@
+# This file keeps the `public/` directory tracked in Git.
+#
+# Place static assets here (favicons, logos, og-images, brand
+# imagery, fonts, etc.) and reference them from JSX as "/filename.ext".
+# Vite serves everything inside this folder verbatim from the site root.
+#
+# You can safely delete this file once real assets are added.
