@@ -37,8 +37,8 @@ const HomePage = () => {
         {/* Subtle gold hairline at the bottom for that luxury cut */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
 
-        {/* Content */}
-        <div className="relative mx-auto flex min-h-[560px] max-w-7xl flex-col justify-center px-6 py-20 sm:min-h-[640px] lg:min-h-[680px] lg:py-28">
+        {/* Content - responsive padding tuned for Moroccan mobile devices */}
+        <div className="relative mx-auto flex min-h-[500px] max-w-7xl flex-col justify-center px-5 py-14 sm:min-h-[600px] sm:px-8 sm:py-20 lg:min-h-[680px] lg:px-12 lg:py-28">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-black/50 px-4 py-1.5 text-xs font-medium text-amber-300 backdrop-blur-sm">
               <Sparkles className="h-3.5 w-3.5" />

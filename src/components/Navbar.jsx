@@ -70,14 +70,28 @@ const Navbar = () => {
 
       {/* Main navbar */}
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 md:px-6 py-4">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-gradient-to-br from-amber-300 via-amber-500 to-amber-700 shadow-md ring-1 ring-amber-300/40">
-            <span className="text-sm font-black text-black">E</span>
+        {/* Logo - banner-clipped tile + premium wordmark */}
+        <Link
+          to="/"
+          aria-label="Ematech - home"
+          className="group flex items-center gap-2.5"
+        >
+          <span className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg ring-1 ring-amber-400/50 shadow-md shadow-amber-500/20 transition-transform duration-300 group-hover:scale-105">
+            <img
+              src="/Hero-banner.png"
+              alt=""
+              aria-hidden="true"
+              className="h-full w-full object-cover"
+              loading="eager"
+              fetchpriority="high"
+            />
+            {/* Gold glaze for brand cohesion + legibility */}
+            <span className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-400/25 via-transparent to-black/40" />
+            <span className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-amber-300/20" />
           </span>
           <span className="text-xl md:text-2xl font-bold tracking-wider">
             <span className="text-white">Ema</span>
-            <span className="bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">
               tech
             </span>
           </span>
