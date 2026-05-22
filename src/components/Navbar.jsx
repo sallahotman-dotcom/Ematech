@@ -7,10 +7,16 @@ import {
   X,
   User,
   Heart,
-  Phone
+  Phone,
+  Instagram,
+  MapPin
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { categories } from '../data/products';
+
+// Official social + location endpoints
+const INSTAGRAM_URL = 'https://www.instagram.com/ematechstore';
+const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/JTYnBxDzjQtfiJfu6';
 
 const Navbar = () => {
   const { itemsCount } = useCart();
@@ -63,6 +69,26 @@ const Navbar = () => {
           </div>
           <div className="flex items-center gap-4">
             <span className="text-neutral-500">Premium Tech Store</span>
+            <div className="flex items-center gap-2">
+              <a
+                href={GOOGLE_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Find Ematech on Google Maps"
+                className="flex h-6 w-6 items-center justify-center rounded-full text-neutral-400 transition-colors hover:text-amber-400"
+              >
+                <MapPin className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow @ematechstore on Instagram"
+                className="flex h-6 w-6 items-center justify-center rounded-full text-neutral-400 transition-colors hover:text-amber-400"
+              >
+                <Instagram className="h-3.5 w-3.5" />
+              </a>
+            </div>
             <span className="text-amber-400 font-medium">EN | AR</span>
           </div>
         </div>
@@ -165,6 +191,30 @@ const Navbar = () => {
             <User className="h-5 w-5" />
           </Link>
 
+          {/* Google Maps - high-visibility gold-tinted icon */}
+          <a
+            href={GOOGLE_MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Find Ematech on Google Maps"
+            title="Find us on Google Maps"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-300 transition-all hover:border-amber-400/60 hover:bg-amber-500/20 hover:text-amber-400 hover:shadow-md hover:shadow-amber-500/20"
+          >
+            <MapPin className="h-5 w-5" />
+          </a>
+
+          {/* Instagram - high-visibility gold-tinted icon */}
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow @ematechstore on Instagram"
+            title="@ematechstore on Instagram"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-300 transition-all hover:border-amber-400/60 hover:bg-amber-500/20 hover:text-amber-400 hover:shadow-md hover:shadow-amber-500/20"
+          >
+            <Instagram className="h-5 w-5" />
+          </a>
+
           <Link
             to="/cart"
             aria-label="Cart"
@@ -261,6 +311,32 @@ const Navbar = () => {
           <div className="mt-4 flex items-center gap-2 rounded-md bg-neutral-900 px-3 py-3 text-sm text-neutral-300">
             <Phone className="h-4 w-4 text-amber-400" />
             <span>+212 5 22 00 00 00</span>
+          </div>
+
+          <div className="pt-4 pb-1 px-3 text-xs uppercase tracking-widest text-neutral-500">
+            Follow & Find Us
+          </div>
+          <div className="flex items-center gap-3 px-3 py-2">
+            <a
+              href={GOOGLE_MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Find Ematech on Google Maps"
+              className="flex flex-1 items-center justify-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-2.5 text-sm font-semibold text-amber-300 transition-all hover:border-amber-400 hover:text-amber-400"
+            >
+              <MapPin className="h-4 w-4" />
+              Google Maps
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow @ematechstore on Instagram"
+              className="flex flex-1 items-center justify-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-2.5 text-sm font-semibold text-amber-300 transition-all hover:border-amber-400 hover:text-amber-400"
+            >
+              <Instagram className="h-4 w-4" />
+              Instagram
+            </a>
           </div>
         </nav>
       </div>

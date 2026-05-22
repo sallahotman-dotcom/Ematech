@@ -102,11 +102,12 @@ const Footer = () => {
               <Facebook className="h-4 w-4" />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/ematechstore"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-800 text-neutral-300 transition-all hover:border-amber-400 hover:text-amber-400"
+              aria-label="Follow @ematechstore on Instagram"
+              title="@ematechstore on Instagram"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-amber-500/40 bg-gradient-to-br from-amber-500/15 to-transparent text-amber-300 transition-all hover:border-amber-400 hover:bg-amber-500/25 hover:text-amber-400 hover:shadow-md hover:shadow-amber-500/20"
             >
               <Instagram className="h-4 w-4" />
             </a>
@@ -127,6 +128,16 @@ const Footer = () => {
               className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-800 text-neutral-300 transition-all hover:border-amber-400 hover:text-amber-400"
             >
               <Youtube className="h-4 w-4" />
+            </a>
+            <a
+              href="https://maps.app.goo.gl/JTYnBxDzjQtfiJfu6"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Find Ematech on Google Maps"
+              title="Find us on Google Maps"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-amber-500/40 bg-gradient-to-br from-amber-500/15 to-transparent text-amber-300 transition-all hover:border-amber-400 hover:bg-amber-500/25 hover:text-amber-400 hover:shadow-md hover:shadow-amber-500/20"
+            >
+              <MapPin className="h-4 w-4" />
             </a>
           </div>
         </div>

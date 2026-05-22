@@ -20,6 +20,8 @@ import {
 } from '../data/products';
 import { useCart } from '../context/CartContext';
 import ProductCard from '../components/ProductCard';
+import DeviceConditionCard from '../components/DeviceConditionCard';
+import TrustBadges from '../components/TrustBadges';
 
 // Moroccan WhatsApp number in E.164 (without the leading +).
 // Update this once you publish the official Ematech WhatsApp line.
@@ -414,44 +416,51 @@ const ProductPage = () => {
           </div>
         </div>
 
-        {/* ============== SPECIFICATIONS ============== */}
-        {product.specs && Object.keys(product.specs).length > 0 && (
-          <section className="mt-16">
-            <div className="mb-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-400">
-                Specifications
-              </p>
-              <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
-                Technical details
-              </h2>
-            </div>
-            <div className="overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/40">
-              <table className="w-full text-sm">
-                <tbody>
-                  {Object.entries(product.specs).map(([key, value], idx) => (
-                    <tr
-                      key={key}
-                      className={
-                        idx % 2 === 0
-                          ? 'bg-neutral-900/60'
-                          : 'bg-transparent'
-                      }
-                    >
-                      <th
-                        scope="row"
-                        className="w-1/3 px-5 py-4 text-left font-medium text-neutral-400"
-                      >
-                        {key}
-                      </th>
-                      <td className="px-5 py-4 text-white">{value}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-        )}
       </section>
+
+      {/* ============== DEVICE CONDITION (smartphones only) ============== */}
+      {product.category === 'smartphones' && <DeviceConditionCard />}
+
+      {/* ============== SPECIFICATIONS ============== */}
+      {product.specs && Object.keys(product.specs).length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 pb-12 lg:pb-16">
+          <div className="mb-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-400">
+              Specifications
+            </p>
+            <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
+              Technical details
+            </h2>
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/40">
+            <table className="w-full text-sm">
+              <tbody>
+                {Object.entries(product.specs).map(([key, value], idx) => (
+                  <tr
+                    key={key}
+                    className={
+                      idx % 2 === 0
+                        ? 'bg-neutral-900/60'
+                        : 'bg-transparent'
+                    }
+                  >
+                    <th
+                      scope="row"
+                      className="w-1/3 px-5 py-4 text-left font-medium text-neutral-400"
+                    >
+                      {key}
+                    </th>
+                    <td className="px-5 py-4 text-white">{value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
+      {/* ============== TRUST BADGES ============== */}
+      <TrustBadges />
 
       {/* ============== RELATED PRODUCTS ============== */}
       {related.length > 0 && (

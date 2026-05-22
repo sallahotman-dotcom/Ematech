@@ -16,6 +16,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import TrustBadges from '../components/TrustBadges';
 
 // Make.com webhook for COD order automation
 const MAKE_WEBHOOK_URL =
@@ -663,6 +664,9 @@ const CheckoutPage = () => {
           </div>
         </section>
       </form>
+
+      {/* Trust badges shown directly under the form */}
+      <TrustBadges />
     </div>
   );
 };

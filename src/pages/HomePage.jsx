@@ -9,6 +9,7 @@ import {
 import { categories, getFeaturedProducts } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import ReviewsCarousel from '../components/ReviewsCarousel';
+import InstagramShowcase from '../components/InstagramShowcase';
 
 const HomePage = () => {
   const featured = getFeaturedProducts();
@@ -189,6 +190,9 @@ const HomePage = () => {
 
       {/* ============== REVIEWS CAROUSEL ============== */}
       <ReviewsCarousel />
+
+      {/* ============== INSTAGRAM SHOWCASE ("Ematech in real life") ============== */}
+      <InstagramShowcase />
 
       {/* ============== CTA BANNER ============== */}
       <section className="bg-neutral-950 py-20">
